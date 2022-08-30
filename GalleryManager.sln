@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalleryManager", "GalleryManager.csproj", "{FFE4967C-8DF8-45FA-A848-18225AF507E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFE4967C-8DF8-45FA-A848-18225AF507E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE4967C-8DF8-45FA-A848-18225AF507E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE4967C-8DF8-45FA-A848-18225AF507E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE4967C-8DF8-45FA-A848-18225AF507E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
