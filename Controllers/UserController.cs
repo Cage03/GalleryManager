@@ -1,6 +1,6 @@
 using DataAccess.Classes;
+using Interface.Classes;
 using Interface.Dtos;
-using Interface.Interfaces;
 using Logic.Containers;
 using Microsoft.AspNetCore.Mvc;
 

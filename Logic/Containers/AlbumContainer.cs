@@ -1,9 +1,8 @@
-
 using System.Collections.Generic;
 using DataAccess.Classes;
+using Interface.Classes;
 using Interface.DAL;
 using Interface.Dtos;
-using Interface.Interfaces;
 using Logic.Classes;
 
 namespace Logic.Containers
@@ -11,35 +10,35 @@ namespace Logic.Containers
     public class AlbumContainer : IAlbumContainer
     {
         public IList<Album> Albums { get; set; }
-        public readonly IAlbumDal _AlbumDal;
+        public readonly IAlbumDal AlbumDal;
 
-        public AlbumContainer(AlbumDal albumDal)
+        public AlbumContainer(IAlbumDal albumDal)
         {
             Albums = new List<Album>();
-            _AlbumDal = albumDal;
+            AlbumDal = albumDal;
             GetAllAlbums();
         }
 
         public int AddAlbum(AlbumDto albumDto)
         {
             Albums.Add(new Album(albumDto));
-            _AlbumDal.AddAlbum(albumDto);
+            AlbumDal.AddAlbum(albumDto);
             return 0; //Not Implemented
         }
 
-        public bool RemoveAlbum(AlbumDto albumDto)
+        public bool RemoveAlbum(int id)
         {
-            var toBeRemoved = new Album(albumDto);
+            var toBeRemoved = new Album();
             foreach (var album in Albums)
             {
-                if (album.Id == albumDto.Id)
+                if (album.Id == id)
                 {
                     toBeRemoved = album;
                 }
             }
 
             Albums.Remove(toBeRemoved);
-            _AlbumDal.DeleteAlbum(albumDto.Id);
+            AlbumDal.DeleteAlbum(id);
             return true; //not implemented
         }
 
@@ -56,28 +55,28 @@ namespace Logic.Containers
 
             Albums.Remove(toBeRemoved);
             Albums.Add(new Album(albumDto));
-            _AlbumDal.UpdateAlbum(albumDto);
+            AlbumDal.UpdateAlbum(albumDto);
             return true; //not implemented
         }
 
         public AlbumDto GetAlbum(int id)
         {
-            return _AlbumDal.GetAlbumById(id);
+            return AlbumDal.GetAlbumById(id);
         }
         
         public IList<AlbumDto> GetAllAlbumsByUser(int userId)
         {
-            return _AlbumDal.GetAllAlbumsByUser(userId);
+            return AlbumDal.GetAllAlbumsByUser(userId);
         }
 
         public IList<AlbumDto> GetAllAlbums()
         {
             Albums.Clear();
-            foreach (var albumDto in _AlbumDal.GetAllAlbums())
+            foreach (var albumDto in AlbumDal.GetAllAlbums())
             {
                 Albums.Add(new Album(albumDto));
             }
-            return _AlbumDal.GetAllAlbums();
+            return AlbumDal.GetAllAlbums();
         }
         
         public IList<PhotoDto> GetPhotosByAlbum(int albumId)
@@ -114,7 +113,7 @@ namespace Logic.Containers
             {
                 if (album.Id == albumId)
                 {
-                    album.AddPhoto(photoDto);
+                    album.AddPhoto(photoDto, albumId);
                 }
             }
         }

@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
-using System.Configuration;
+using System.Linq;
+using Interface.Classes;
 using Interface.DAL;
 using Interface.Dtos;
-using Interface.Interfaces;
 using Logic.Classes;
 
 namespace Logic.Containers
@@ -29,12 +28,9 @@ namespace Logic.Containers
         public bool RemoveUser(int id)
         {
             var toBeDeleted = new User();
-            foreach (var user in Users)
+            foreach (var user in Users.Where(user => user.Id == id))
             {
-                if (user.Id == id)
-                {
-                    toBeDeleted = user;
-                }
+                toBeDeleted = user;
             }
 
             Users.Remove(toBeDeleted);
@@ -45,12 +41,9 @@ namespace Logic.Containers
         public bool UpdateUser(UserDto userDto)
         {
             var toBeDeleted = new User();
-            foreach (var user in Users)
+            foreach (var user in Users.Where(user => user.Id == userDto.Id))
             {
-                if (user.Id == userDto.Id)
-                {
-                    toBeDeleted = user;
-                }
+                toBeDeleted = user;
             }
 
             Users.Remove(toBeDeleted);
@@ -63,6 +56,11 @@ namespace Logic.Containers
         public UserDto GetUser(int id)
         {
             return _userDal.GetUserById(id);
+        }
+        
+        public UserDto GetUserByUsername(string username)
+        {
+            return _userDal.GetUserByUsername(username);
         }
 
         public IList<UserDto> GetAllUsers()

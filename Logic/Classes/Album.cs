@@ -73,9 +73,10 @@ namespace Logic.Classes
             };
         }
 
-        public void AddPhoto(PhotoDto photoDto)
+        public void AddPhoto(PhotoDto photoDto, int albumId)
         {
             Photos.Add(new Photo(photoDto));
+            _photoDal.AddPhotoToAlbum(photoDto, albumId);
         }
         
         public void AddPhotosToAlbum(IList<PhotoDto> photos, int albumId)
@@ -95,6 +96,7 @@ namespace Logic.Classes
             }
 
             Photos.Remove(toBeDeleted);
+            _photoDal.DeletePhoto(photoDto.Id);
         }
 
         public void UpdatePhoto(PhotoDto photoDto)
@@ -110,6 +112,7 @@ namespace Logic.Classes
 
             Photos.Remove(toBeDeleted);
             Photos.Add(new Photo(photoDto));
+            _photoDal.UpdatePhoto(photoDto);
         }
 
         public IList<PhotoDto> GetAllPhotosFromAlbum(int albumId)
@@ -119,16 +122,7 @@ namespace Logic.Classes
 
         public PhotoDto GetPhoto(int id)
         {
-            var result = new Photo();
-            foreach (var photo in Photos)
-            {
-                if (photo.Id == id)
-                {
-                    result = photo;
-                }
-            }
-
-            return result.ToDto();
+            return _photoDal.GetPhotoById(id);
         }
     }
 }

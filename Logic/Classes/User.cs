@@ -1,6 +1,5 @@
 using System;
 using Interface.Dtos;
-using Interface.Interfaces;
 
 namespace Logic.Classes
 {

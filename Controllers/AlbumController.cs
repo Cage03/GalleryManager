@@ -1,6 +1,6 @@
 using DataAccess.Classes;
+using Interface.Classes;
 using Interface.Dtos;
-using Interface.Interfaces;
 using Logic.Containers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -75,12 +75,12 @@ public class AlbumController : ControllerBase
 
     [HttpDelete]
     [ActionName("Album")]
-    public bool Delete(AlbumDto albumDto)
+    public bool Delete([FromQuery] int id)
     {
         try
         {
             Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            return _albumContainer.RemoveAlbum(albumDto);
+            return _albumContainer.RemoveAlbum(id);
         }
         catch
         {

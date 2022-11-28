@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using Interface.Dtos;
 
-namespace Interface.Interfaces
+namespace Interface.Classes
 {
     public interface IAlbumContainer
     {
         public int AddAlbum(AlbumDto albumDto);
-        public bool RemoveAlbum(AlbumDto albumDto);
+        public bool RemoveAlbum(int id);
         public bool UpdateAlbum(AlbumDto albumDto);
         public AlbumDto GetAlbum(int id);
         public IList<AlbumDto> GetAllAlbumsByUser(int userId);
