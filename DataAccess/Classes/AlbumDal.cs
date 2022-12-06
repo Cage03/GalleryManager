@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using Interface.DAL;
 using Interface.Dtos;

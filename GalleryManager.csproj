@@ -52,6 +52,7 @@
       <_ContentIncludedByDefault Remove="DataAccess1\obj\DataAccess1.csproj.nuget.dgspec.json" />
       <_ContentIncludedByDefault Remove="DataAccess1\obj\project.assets.json" />
       <_ContentIncludedByDefault Remove="DataAccess1\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="packages\EntityFramework.6.4.4\tools\netcoreapp3.0\any\ef6.runtimeconfig.json" />
     </ItemGroup>
 
     <ItemGroup>
