@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
 using DataAccess.Classes;
 using Interface.DAL;
 using Interface.Dtos;
+
 
 namespace Logic.Classes 
 {

@@ -58,7 +58,6 @@
       <ProjectReference Include="DataAccess\DataAccess.csproj" />
       <ProjectReference Include="Interface\Interface.csproj" />
       <ProjectReference Include="Logic\Logic.csproj" />
-      <ProjectReference Include="UnitTests\UnitTests.csproj" />
     </ItemGroup>
 
 </Project>

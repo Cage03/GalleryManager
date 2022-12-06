@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Interface.Dtos;
 
 namespace Interface.DAL;
