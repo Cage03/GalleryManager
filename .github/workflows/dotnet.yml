@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore Logic
-      run: /home/runner/work/GalleryManager/Logic/Logic.csproj
+      run: dotnet restore /home/runner/work/GalleryManager/Logic/Logic.csproj
     - name: Restore DataAccess
       run: dotnet restore /home/runner/work/GalleryManager/DataAccess/DataAccess.csproj
     - name: Restore Interface
