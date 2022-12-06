@@ -17,8 +17,8 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       
-    - uses: mr-smithers-excellent/docker-build-push@v5
     - name: Deploy
+    - uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: cage03/gallery-manager	        
         tags: latest-event	        
