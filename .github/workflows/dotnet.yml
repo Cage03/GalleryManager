@@ -21,13 +21,13 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore Logic
-      run: dotnet restore /home/runner/work/GalleryManager/Logic/Logic.csproj
+      run: dotnet restore ./GalleryManager/Logic/Logic.csproj
     - name: Restore DataAccess
-      run: dotnet restore /home/runner/work/GalleryManager/DataAccess/DataAccess.csproj
+      run: dotnet restore ./GalleryManager/DataAccess/DataAccess.csproj
     - name: Restore Interface
-      run: dotnet restore /home/runner/work/GalleryManager/Interface/Interface.csproj
+      run: dotnet restore ./GalleryManager/Interface/Interface.csproj
     - name: Restore UnitTests
-      run: dotnet restore /home/runner/work/GalleryManager/UnitTests/UnitTests.csproj
+      run: dotnet restore ./GalleryManager/UnitTests/UnitTests.csproj
     - name: Build
       run: dotnet build --no-restore
     - name: Test
