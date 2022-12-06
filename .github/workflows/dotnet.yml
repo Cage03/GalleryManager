@@ -20,8 +20,14 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
+    - name: Restore Logic
+      run: dotnet restore Logic/Logic.csproj
+    - name: Restore DataAccess
+      run: dotnet restore DataAccess/DataAccess.csproj
+    - name: Restore Interface
+      run: dotnet restore Interface/Interface.csproj
+    - name: Restore UnitTests
+      run: dotnet restore UnitTests/UnitTests.csproj
     - name: Build
       run: dotnet build --no-restore
     - name: Test
